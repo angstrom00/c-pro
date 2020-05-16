@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i, n) for(int i = 0; i < (int)(n); i++)
+#define REP(i, n) for(int i = 1; i <= (int)(n); i++)
+
+const long long INF = 1LL << 60;
+
+int main() {
+  int n,cnt=0;
+  long long a,sum=0,b;
+  bool up=1, dn=1;
+  cin >> n;
+  
+  //a_1が正のとき
+  for(int i=0;i<n;i++){
+  	cin >> a;
+    sum += a;
+  
+    if(i%2 == 0){
+    	if(sum<=0){
+    		cnt += abs(sum)+1;
+      		sum++;
+        }
+    }
+    if(i%2 == 1){
+    	if(sum>=0){
+    		cnt += abs(sum)+1;
+      		sum--;
+        }
+    }
+    
+    sum += a;
+    
+  }
+
+  
+  cout << cnt  << endl;
+  
+}
